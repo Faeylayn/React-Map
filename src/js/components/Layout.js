@@ -1,5 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 
 import { fetchUser } from "../actions/userActions"
 import { fetchTweets } from "../actions/tweetsActions"
@@ -11,27 +12,25 @@ import { fetchTweets } from "../actions/tweetsActions"
     tweets: store.tweets.tweets,
   };
 })
+
+
+// render(map, document.getElementById('map-container'));
 export default class Layout extends React.Component {
-  componentWillMount() {
-    this.props.dispatch(fetchUser())
-  }
-
-  fetchTweets() {
-    this.props.dispatch(fetchTweets())
-  }
-
   render() {
-    const { user, tweets } = this.props;
-
-    if (!tweets.length) {
-      return <button onClick={this.fetchTweets.bind(this)}>load tweets</button>
-    }
-
-    const mappedTweets = tweets.map(tweet => <li>{tweet.text}</li>)
-
-    return <div>
-      <h1>{user.name}</h1>
-      <ul>{mappedTweets}</ul>
-    </div>
+    const position = [51.505, -0.09];
+    const map = (
+      <Map center={position} zoom={13}>
+        <TileLayer
+          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        />
+        <Marker position={position}>
+          <Popup>
+            <span>A pretty CSS3 popup.<br/>Easily customizable.</span>
+          </Popup>
+        </Marker>
+      </Map>
+    );
+    return map
   }
 }
