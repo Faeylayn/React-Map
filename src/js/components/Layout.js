@@ -17,12 +17,13 @@ import { fetchTweets } from "../actions/tweetsActions"
 // render(map, document.getElementById('map-container'));
 export default class Layout extends React.Component {
   render() {
-    const position = [51.505, -0.09];
-    const map = (
-      <Map center={position} zoom={1}>
+    var position = [0, 0];
+    var map = (
+      <Map center={position} zoom={1.5}>
         <TileLayer
           url='https://maps.terravion.com/apidemo/v1/baseLayers/tiles/{z}/{x}/{y}.jpg'
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          tms='true'
         />
         <Marker position={position}>
           <Popup>
