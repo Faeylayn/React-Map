@@ -17,9 +17,9 @@ import { fetchTweets } from "../actions/tweetsActions"
 // render(map, document.getElementById('map-container'));
 export default class Layout extends React.Component {
   render() {
-    var position = [0, 0];
+    var position = [20, 30];
     var map = (
-      <Map center={position} zoom={1.5}>
+      <Map center={position} zoom={2}>
         <TileLayer
           url='https://maps.terravion.com/apidemo/v1/baseLayers/tiles/{z}/{x}/{y}.jpg'
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
