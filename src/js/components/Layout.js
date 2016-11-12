@@ -19,9 +19,9 @@ export default class Layout extends React.Component {
   render() {
     const position = [51.505, -0.09];
     const map = (
-      <Map center={position} zoom={13}>
+      <Map center={position} zoom={1}>
         <TileLayer
-          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+          url='https://maps.terravion.com/apidemo/v1/baseLayers/tiles/{z}/{x}/{y}.jpg'
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
         <Marker position={position}>
