@@ -34,8 +34,9 @@ import L from 'leaflet';
 const position = [51.505, -0.09];
 const map = L.map('map-container').setView(position, 13);
 
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+L.tileLayer('https://maps.terravion.com/apidemo/v1/baseLayers/tiles/{z}/{x}/{y}.jpg', {
+  attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+  tms: true
 }).addTo(map);
 
 L.marker(position).addTo(map)
